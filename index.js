@@ -125,22 +125,38 @@ function scoreboard(cb,ni) {
   let home = 0;
   let away = 0;
   let message = [];
+  let awayFinal = [];
+  let homeFinal = [];
 
   for (let i=1; i<=ni; i++){
     
     if (i === 1) {
-      message.push(`${[i]}st inning: ${away += cb()} - ${home += cb() }`);
+      message.push(`${[i]}st inning: ${away = cb()} - ${home = cb() }`);
+      awayFinal.push(away);
+      homeFinal.push(home);
     } else if (i === 2){ 
-      message.push(`${[i]}nd inning: ${away += cb()} - ${home += cb() }`);
+      message.push(`${[i]}nd inning: ${away = cb()} - ${home = cb() }`);
+      awayFinal.push(away);
+      homeFinal.push(home);
     } else if (i === 3){ 
-      message.push(`${[i]}rd inning: ${away += cb()} - ${home += cb() }`);
+      message.push(`${[i]}rd inning: ${away = cb()} - ${home = cb() }`);
+      awayFinal.push(away);
+      homeFinal.push(home);
     } else {
-      message.push(`${[i]}th inning: ${away += cb()} - ${home += cb() }`);
+      message.push(`${[i]}th inning: ${away = cb()} - ${home = cb() }`);
+      awayFinal.push(away);
+      homeFinal.push(home);
     }
     
   }
+  let awayFScore = awayFinal.reduce(function(rt, cv){
+    return cv + rt;
+  });
+  let homeFScore = homeFinal.reduce(function(rt, cv){
+    return cv + rt;
+  });
   
-  message.push(`Final Score: ${away} - ${home}`);
+  message.push(`Final Score: ${awayFScore} - ${homeFScore}`);
   return message;
 
 }
